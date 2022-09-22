@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/slip.mp3-69672ba1612c6fbbe0543da293424547.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/slip.mp3"
+dest_files=[ "res://.import/slip.mp3-69672ba1612c6fbbe0543da293424547.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

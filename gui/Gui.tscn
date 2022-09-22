@@ -1,0 +1,368 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://gui/Gui.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/menu-open.png" type="Texture" id=2]
+[ext_resource path="res://gui/button_theme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/images/restart.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/information-button.png" type="Texture" id=5]
+[ext_resource path="res://assets/fonts/Autumn Arbor.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/images/arrow-keys.png" type="Texture" id=7]
+[ext_resource path="res://assets/images/r-key.png" type="Texture" id=8]
+[ext_resource path="res://assets/images/wasd-keys.png" type="Texture" id=9]
+[ext_resource path="res://assets/fonts/Autumn Happiness.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://assets/images/swipe.png" type="Texture" id=11]
+[ext_resource path="res://gui/steps.gd" type="Script" id=12]
+[ext_resource path="res://assets/images/undo.png" type="Texture" id=13]
+[ext_resource path="res://assets/images/space-key.png" type="Texture" id=14]
+
+[sub_resource type="DynamicFont" id=7]
+size = 30
+font_data = ExtResource( 10 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 0.882353, 0.882353 )
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="InputEventAction" id=2]
+action = "restart"
+
+[sub_resource type="ShortCut" id=3]
+shortcut = SubResource( 2 )
+
+[sub_resource type="InputEventAction" id=8]
+action = "undo"
+
+[sub_resource type="ShortCut" id=9]
+shortcut = SubResource( 8 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 1, 0.882353, 0.882353 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
+extra_spacing_char = 2
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+extra_spacing_char = 2
+font_data = ExtResource( 6 )
+
+[node name="Gui" type="Control"]
+margin_right = 960.0
+margin_bottom = 624.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Title" type="Label" parent="."]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 45.0
+margin_bottom = 30.0
+custom_colors/font_color = Color( 1, 1, 0.882353, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Level "
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="menu_button" type="TextureButton" parent="."]
+margin_left = 5.0
+margin_top = 571.0
+margin_right = 53.0
+margin_bottom = 619.0
+rect_pivot_offset = Vector2( 24, 24 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tween" type="Tween" parent="menu_button"]
+
+[node name="menu_panel" type="Panel" parent="."]
+margin_left = -169.0
+margin_top = 353.0
+margin_right = -1.0
+margin_bottom = 561.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="HBoxContainer" type="VBoxContainer" parent="menu_panel"]
+margin_right = 168.0
+margin_bottom = 208.0
+theme = ExtResource( 3 )
+alignment = 1
+
+[node name="select_level" type="Button" parent="menu_panel/HBoxContainer"]
+margin_top = 12.0
+margin_right = 168.0
+margin_bottom = 55.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.290196, 0.215686, 0.470588, 1 )
+custom_colors/font_color_hover = Color( 0.678431, 0.509804, 0.811765, 1 )
+custom_colors/font_color_pressed = Color( 0.788235, 0.180392, 0.439216, 1 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "Select level"
+flat = true
+
+[node name="restart" type="Button" parent="menu_panel/HBoxContainer"]
+margin_top = 59.0
+margin_right = 168.0
+margin_bottom = 102.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.290196, 0.215686, 0.470588, 1 )
+custom_colors/font_color_hover = Color( 0.678431, 0.509804, 0.811765, 1 )
+custom_colors/font_color_pressed = Color( 0.788235, 0.180392, 0.439216, 1 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "Restart level"
+flat = true
+
+[node name="mute_music" type="Button" parent="menu_panel/HBoxContainer"]
+margin_top = 106.0
+margin_right = 168.0
+margin_bottom = 149.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.290196, 0.215686, 0.470588, 1 )
+custom_colors/font_color_hover = Color( 0.678431, 0.509804, 0.811765, 1 )
+custom_colors/font_color_pressed = Color( 0.788235, 0.180392, 0.439216, 1 )
+toggle_mode = true
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "Mute music"
+flat = true
+
+[node name="mute_fx" type="Button" parent="menu_panel/HBoxContainer"]
+margin_top = 153.0
+margin_right = 168.0
+margin_bottom = 196.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.290196, 0.215686, 0.470588, 1 )
+custom_colors/font_color_hover = Color( 0.678431, 0.509804, 0.811765, 1 )
+custom_colors/font_color_pressed = Color( 0.788235, 0.180392, 0.439216, 1 )
+toggle_mode = true
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "Mute sounds"
+flat = true
+
+[node name="Tween" type="Tween" parent="menu_panel"]
+
+[node name="restart_button" type="TextureButton" parent="."]
+margin_left = 58.0
+margin_top = 571.0
+margin_right = 106.0
+margin_bottom = 619.0
+rect_pivot_offset = Vector2( 24, 24 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+shortcut = SubResource( 3 )
+texture_normal = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tween" type="Tween" parent="restart_button"]
+
+[node name="undo_button" type="TextureButton" parent="."]
+margin_left = 111.0
+margin_top = 571.0
+margin_right = 159.0
+margin_bottom = 619.0
+rect_pivot_offset = Vector2( 24, 24 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+shortcut = SubResource( 9 )
+texture_normal = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tween" type="Tween" parent="undo_button"]
+
+[node name="information_button" type="TextureButton" parent="."]
+margin_left = 164.0
+margin_top = 571.0
+margin_right = 212.0
+margin_bottom = 619.0
+rect_pivot_offset = Vector2( 24, 24 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tween" type="Tween" parent="information_button"]
+
+[node name="information_panel" type="Panel" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 216.0
+margin_top = 77.0
+margin_right = 744.0
+margin_bottom = 549.0
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="how_to_play_title" type="Label" parent="information_panel"]
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 74.0
+margin_bottom = 42.0
+custom_colors/font_color = Color( 0.678431, 0.509804, 0.811765, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "How to play?"
+
+[node name="how_to_play_text" type="Label" parent="information_panel/how_to_play_title"]
+margin_top = 46.0
+margin_right = 480.0
+margin_bottom = 118.0
+custom_colors/font_color = Color( 0.290196, 0.215686, 0.470588, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "It's simple. Collect the leaves and throw them to trash. Enjoy :)"
+autowrap = true
+
+[node name="control_title" type="Label" parent="information_panel"]
+margin_left = 24.0
+margin_top = 155.0
+margin_right = 126.0
+margin_bottom = 199.0
+custom_colors/font_color = Color( 0.678431, 0.509804, 0.811765, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Controls"
+
+[node name="movement_text" type="Label" parent="information_panel/control_title"]
+margin_top = 48.0
+margin_right = 120.0
+margin_bottom = 81.0
+custom_colors/font_color = Color( 0.290196, 0.215686, 0.470588, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Movement:"
+autowrap = true
+
+[node name="wasd_keys" type="TextureRect" parent="information_panel/control_title"]
+margin_top = 92.0
+margin_right = 120.0
+margin_bottom = 172.0
+texture = ExtResource( 9 )
+
+[node name="or_text" type="Label" parent="information_panel/control_title"]
+margin_left = 142.0
+margin_top = 117.0
+margin_right = 166.0
+margin_bottom = 150.0
+custom_colors/font_color = Color( 0.290196, 0.215686, 0.470588, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "or"
+autowrap = true
+
+[node name="arrow_keys" type="TextureRect" parent="information_panel/control_title"]
+margin_left = 181.0
+margin_top = 92.0
+margin_right = 302.0
+margin_bottom = 172.0
+texture = ExtResource( 7 )
+
+[node name="or_text2" type="Label" parent="information_panel/control_title"]
+margin_left = 320.0
+margin_top = 117.0
+margin_right = 344.0
+margin_bottom = 150.0
+custom_colors/font_color = Color( 0.290196, 0.215686, 0.470588, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "or"
+autowrap = true
+
+[node name="swipe" type="TextureRect" parent="information_panel/control_title"]
+margin_left = 360.0
+margin_top = 64.0
+margin_right = 477.0
+margin_bottom = 185.0
+texture = ExtResource( 11 )
+
+[node name="restart_level" type="Label" parent="information_panel/control_title"]
+margin_top = 203.0
+margin_right = 146.0
+margin_bottom = 236.0
+custom_colors/font_color = Color( 0.290196, 0.215686, 0.470588, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Restart level:"
+autowrap = true
+
+[node name="r_key" type="TextureRect" parent="information_panel/control_title"]
+margin_left = 152.0
+margin_top = 199.0
+margin_right = 192.0
+margin_bottom = 238.0
+texture = ExtResource( 8 )
+
+[node name="undo_step" type="Label" parent="information_panel/control_title"]
+margin_top = 256.0
+margin_right = 146.0
+margin_bottom = 289.0
+custom_colors/font_color = Color( 0.290196, 0.215686, 0.470588, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Undo step:"
+autowrap = true
+
+[node name="space_key" type="TextureRect" parent="information_panel/control_title"]
+margin_left = 152.0
+margin_top = 252.0
+margin_right = 394.0
+margin_bottom = 291.0
+texture = ExtResource( 14 )
+
+[node name="Tween" type="Tween" parent="information_panel"]
+
+[node name="steps" type="Node" parent="."]
+script = ExtResource( 12 )
+
+[connection signal="gui_input" from="." to="." method="_on_Gui_gui_input"]
+[connection signal="mouse_entered" from="menu_button" to="." method="_on_menu_button_mouse_entered"]
+[connection signal="mouse_exited" from="menu_button" to="." method="_on_menu_button_mouse_exited"]
+[connection signal="toggled" from="menu_button" to="." method="_on_menu_button_toggled"]
+[connection signal="pressed" from="menu_panel/HBoxContainer/select_level" to="." method="_on_select_level_pressed"]
+[connection signal="pressed" from="menu_panel/HBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="menu_panel/HBoxContainer/mute_music" to="." method="_on_mute_music_pressed"]
+[connection signal="toggled" from="menu_panel/HBoxContainer/mute_music" to="." method="_on_mute_music_toggled"]
+[connection signal="toggled" from="menu_panel/HBoxContainer/mute_fx" to="." method="_on_mute_fx_toggled"]
+[connection signal="mouse_entered" from="restart_button" to="." method="_on_restart_button_mouse_entered"]
+[connection signal="mouse_exited" from="restart_button" to="." method="_on_restart_button_mouse_exited"]
+[connection signal="pressed" from="restart_button" to="." method="_on_restart_button_pressed"]
+[connection signal="mouse_entered" from="undo_button" to="." method="_on_undo_button_mouse_entered"]
+[connection signal="mouse_exited" from="undo_button" to="." method="_on_undo_button_mouse_exited"]
+[connection signal="pressed" from="undo_button" to="." method="_on_undo_button_pressed"]
+[connection signal="mouse_entered" from="information_button" to="." method="_on_information_button_mouse_entered"]
+[connection signal="mouse_exited" from="information_button" to="." method="_on_information_button_mouse_exited"]
+[connection signal="toggled" from="information_button" to="." method="_on_information_button_toggled"]
+[connection signal="tween_all_completed" from="information_panel/Tween" to="." method="_on_Tween_tween_all_completed"]

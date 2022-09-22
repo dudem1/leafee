@@ -1,0 +1,161 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://game/tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://game/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/Listie.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/Kos.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/images/background.png" type="Texture" id=5]
+[ext_resource path="res://game/level_fade_in.tres" type="Animation" id=6]
+[ext_resource path="res://gui/Gui.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/Box.tscn" type="PackedScene" id=8]
+[ext_resource path="res://game/level_fade_out.tres" type="Animation" id=9]
+[ext_resource path="res://assets/fonts/Merriweather-LightIt.ttf" type="DynamicFontData" id=10]
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = ExtResource( 10 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+
+[sub_resource type="Animation" id=4]
+resource_name = "citat"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Objekty/Citat:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Objekty/Citat:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "level_fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Objekty:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Level" type="Node2D"]
+
+[node name="ColorRect" type="TextureRect" parent="."]
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Objekty" type="Node2D" parent="."]
+
+[node name="Tiles" type="TileMap" parent="Objekty"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 48, 48 )
+format = 1
+tile_data = PoolIntArray( 5, 0, 1, 6, 0, 2, 7, 0, 2, 8, 0, 7, 9, 0, 2, 10, 0, 131074, 11, 0, 2, 12, 0, 3, 65537, 4, 0, 65541, 0, 65537, 65544, 0, 65543, 65548, 0, 65539, 65550, 1, 0, 65552, 4, 0, 131077, 0, 65539, 131084, 0, 65539, 196613, 0, 65539, 196616, 0, 1, 196617, 0, 131077, 196620, 0, 131073, 196621, 0, 131074, 196622, 0, 2, 196623, 0, 3, 262149, 0, 131073, 262150, 0, 3, 262152, 0, 65537, 262159, 0, 65539, 327686, 0, 65537, 327688, 0, 65539, 327695, 0, 65537, 393220, 2, 0, 393222, 0, 65539, 393224, 0, 65537, 393231, 0, 65537, 458753, 3, 0, 458758, 0, 65539, 458760, 0, 65543, 458762, 0, 131076, 458763, 0, 131074, 458764, 0, 131077, 458766, 0, 4, 458767, 0, 5, 524294, 0, 65539, 524303, 0, 65537, 524305, 2, 0, 589830, 0, 131073, 589831, 0, 3, 589839, 0, 65537, 655367, 0, 131073, 655368, 0, 2, 655369, 0, 2, 655370, 0, 2, 655371, 0, 2, 655372, 0, 3, 655375, 0, 65537, 720901, 1, 0, 720908, 0, 131073, 720909, 0, 2, 720910, 0, 131074, 720911, 0, 131075, 720914, 1, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Box" parent="Objekty" instance=ExtResource( 8 )]
+position = Vector2( 552, 168 )
+
+[node name="Box2" parent="Objekty" instance=ExtResource( 8 )]
+position = Vector2( 552, 216 )
+
+[node name="Box3" parent="Objekty" instance=ExtResource( 8 )]
+position = Vector2( 600, 216 )
+
+[node name="Box4" parent="Objekty" instance=ExtResource( 8 )]
+position = Vector2( 600, 312 )
+
+[node name="Box5" parent="Objekty" instance=ExtResource( 8 )]
+position = Vector2( 648, 456 )
+
+[node name="Box6" parent="Objekty" instance=ExtResource( 8 )]
+position = Vector2( 552, 408 )
+
+[node name="Box7" parent="Objekty" instance=ExtResource( 8 )]
+position = Vector2( 600, 408 )
+
+[node name="Kos" parent="Objekty" instance=ExtResource( 4 )]
+position = Vector2( 552, 312 )
+
+[node name="Listie" parent="Objekty" instance=ExtResource( 3 )]
+position = Vector2( 360, 168 )
+
+[node name="Listie2" parent="Objekty" instance=ExtResource( 3 )]
+position = Vector2( 456, 456 )
+
+[node name="Listie3" parent="Objekty" instance=ExtResource( 3 )]
+position = Vector2( 456, 120 )
+
+[node name="Listie4" parent="Objekty" instance=ExtResource( 3 )]
+position = Vector2( 504, 264 )
+
+[node name="Listie5" parent="Objekty" instance=ExtResource( 3 )]
+position = Vector2( 456, 360 )
+
+[node name="Listie6" parent="Objekty" instance=ExtResource( 3 )]
+position = Vector2( 360, 312 )
+
+[node name="Player" parent="Objekty" instance=ExtResource( 2 )]
+position = Vector2( 360, 408 )
+
+[node name="Citat" type="ColorRect" parent="Objekty"]
+visible = false
+modulate = Color( 1, 1, 1, 0.25 )
+margin_top = 240.0
+margin_right = 960.0
+margin_bottom = 365.0
+color = Color( 1, 1, 0.882353, 0.882353 )
+
+[node name="Label" type="Label" parent="Objekty/Citat"]
+margin_left = 96.0
+margin_right = 864.0
+margin_bottom = 125.0
+custom_colors/font_color = Color( 0.290196, 0.215686, 0.470588, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "“Anyone who thinks fallen leaves are dead has never watched them dancing on a windy day.”"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "level_fade_in"
+anims/RESET = SubResource( 2 )
+anims/level_fade_in = ExtResource( 6 )
+anims/level_fade_out = ExtResource( 9 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/citat_animation = SubResource( 4 )
+anims/level_fade_out = SubResource( 5 )
+
+[node name="Gui" parent="." instance=ExtResource( 7 )]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="Gui" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer2" to="Gui" method="_on_AnimationPlayer2_animation_finished"]

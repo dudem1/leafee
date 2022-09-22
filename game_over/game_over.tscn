@@ -1,0 +1,151 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/fonts/Merriweather-LightIt.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://menu/Menu_leaf_gradient.tres" type="Gradient" id=2]
+[ext_resource path="res://assets/images/listie/list5.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/listie/list4.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/background.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/listie/list3.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/listie/list6.png" type="Texture" id=7]
+[ext_resource path="res://assets/images/listie/list2.png" type="Texture" id=8]
+[ext_resource path="res://assets/images/listie/list1.png" type="Texture" id=9]
+[ext_resource path="res://game_over/game_over_animation.tres" type="Animation" id=10]
+[ext_resource path="res://game_over/game_over.gd" type="Script" id=11]
+
+[sub_resource type="Curve" id=2]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 183.273 ), 0.0, 0.0, 0, 0, Vector2( 1, -45.8182 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="DynamicFont" id=3]
+size = 46
+outline_color = Color( 1, 1, 0.882353, 1 )
+font_data = ExtResource( 1 )
+
+[node name="game_over" type="Node2D"]
+script = ExtResource( 11 )
+
+[node name="ColorRect" type="TextureRect" parent="."]
+texture = ExtResource( 5 )
+
+[node name="fall_leaves" type="Node2D" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="fall_leaves"]
+position = Vector2( 480, -120 )
+amount = 4
+preprocess = 4.0
+speed_scale = 0.08
+texture = ExtResource( 9 )
+emission_shape = 2
+emission_rect_extents = Vector2( 460, 1 )
+spread = 180.0
+gravity = Vector2( 0, 1901 )
+initial_velocity = 100.0
+initial_velocity_random = 1.0
+angular_velocity = 177.39
+angular_velocity_random = 1.0
+angular_velocity_curve = SubResource( 2 )
+color_initial_ramp = ExtResource( 2 )
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="fall_leaves"]
+position = Vector2( 480, -120 )
+amount = 4
+preprocess = 5.0
+speed_scale = 0.08
+texture = ExtResource( 8 )
+emission_shape = 2
+emission_rect_extents = Vector2( 460, 1 )
+spread = 180.0
+gravity = Vector2( 0, 1901 )
+initial_velocity = 100.0
+initial_velocity_random = 1.0
+angular_velocity = 177.39
+angular_velocity_random = 1.0
+angular_velocity_curve = SubResource( 2 )
+color_initial_ramp = ExtResource( 2 )
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="fall_leaves"]
+position = Vector2( 480, -120 )
+amount = 4
+preprocess = 6.0
+speed_scale = 0.08
+texture = ExtResource( 6 )
+emission_shape = 2
+emission_rect_extents = Vector2( 460, 1 )
+spread = 180.0
+gravity = Vector2( 0, 1901 )
+initial_velocity = 100.0
+initial_velocity_random = 1.0
+angular_velocity = 177.39
+angular_velocity_random = 1.0
+angular_velocity_curve = SubResource( 2 )
+color_initial_ramp = ExtResource( 2 )
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="fall_leaves"]
+position = Vector2( 480, -120 )
+amount = 4
+preprocess = 7.0
+speed_scale = 0.08
+texture = ExtResource( 4 )
+emission_shape = 2
+emission_rect_extents = Vector2( 460, 1 )
+spread = 180.0
+gravity = Vector2( 0, 1901 )
+initial_velocity = 100.0
+initial_velocity_random = 1.0
+angular_velocity = 177.39
+angular_velocity_random = 1.0
+angular_velocity_curve = SubResource( 2 )
+color_initial_ramp = ExtResource( 2 )
+
+[node name="CPUParticles2D5" type="CPUParticles2D" parent="fall_leaves"]
+position = Vector2( 480, -120 )
+amount = 4
+preprocess = 8.0
+speed_scale = 0.08
+texture = ExtResource( 3 )
+emission_shape = 2
+emission_rect_extents = Vector2( 460, 1 )
+spread = 180.0
+gravity = Vector2( 0, 1901 )
+initial_velocity = 100.0
+initial_velocity_random = 1.0
+angular_velocity = 177.39
+angular_velocity_random = 1.0
+angular_velocity_curve = SubResource( 2 )
+color_initial_ramp = ExtResource( 2 )
+
+[node name="CPUParticles2D6" type="CPUParticles2D" parent="fall_leaves"]
+position = Vector2( 480, -120 )
+amount = 4
+preprocess = 9.0
+speed_scale = 0.08
+texture = ExtResource( 7 )
+emission_shape = 2
+emission_rect_extents = Vector2( 460, 1 )
+spread = 180.0
+gravity = Vector2( 0, 1901 )
+initial_velocity = 100.0
+initial_velocity_random = 1.0
+angular_velocity = 177.39
+angular_velocity_random = 1.0
+angular_velocity_curve = SubResource( 2 )
+color_initial_ramp = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 35.0
+margin_right = 925.0
+margin_bottom = 624.0
+custom_fonts/font = SubResource( 3 )
+text = "Congratulations for finishing all the levels. I am proud of you. You have become a leaf raking master.
+
+Thank you for playing!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "game_over_animation"
+anims/game_over_animation = ExtResource( 10 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

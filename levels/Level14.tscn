@@ -1,0 +1,151 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://game/tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://game/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/Listie.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/Kos.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/images/background.png" type="Texture" id=5]
+[ext_resource path="res://game/level_fade_in.tres" type="Animation" id=6]
+[ext_resource path="res://gui/Gui.tscn" type="PackedScene" id=7]
+[ext_resource path="res://game/Box.tscn" type="PackedScene" id=8]
+[ext_resource path="res://game/level_fade_out.tres" type="Animation" id=9]
+[ext_resource path="res://assets/fonts/Merriweather-LightIt.ttf" type="DynamicFontData" id=10]
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = ExtResource( 10 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+
+[sub_resource type="Animation" id=4]
+resource_name = "citat"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Objekty/Citat:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Objekty/Citat:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "level_fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Objekty:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Level" type="Node2D"]
+
+[node name="ColorRect" type="TextureRect" parent="."]
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Objekty" type="Node2D" parent="."]
+
+[node name="Tiles" type="TileMap" parent="Objekty"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 48, 48 )
+format = 1
+tile_data = PoolIntArray( 65537, 3, 0, 65541, 1, 0, 65544, 0, 1, 65545, 0, 2, 65546, 0, 2, 65547, 0, 2, 65548, 0, 3, 65550, 1, 0, 131078, 0, 1, 131079, 0, 131074, 131080, 0, 131075, 131084, 0, 65539, 131087, 4, 0, 196614, 0, 65537, 196620, 0, 65537, 262150, 0, 65540, 262151, 0, 131074, 262152, 0, 3, 262156, 0, 65537, 262158, 2, 0, 327684, 2, 0, 327686, 0, 65539, 327688, 0, 65540, 327689, 0, 131077, 327692, 0, 65539, 393222, 0, 65539, 393224, 0, 65543, 393228, 0, 131073, 393229, 0, 3, 458754, 4, 0, 458758, 0, 65537, 458765, 0, 65537, 458770, 1, 0, 524294, 0, 65537, 524301, 0, 65539, 524303, 3, 0, 589830, 0, 65537, 589832, 0, 4, 589833, 0, 131074, 589834, 0, 131077, 589836, 0, 1, 589837, 0, 131075, 655361, 1, 0, 655366, 0, 65537, 655372, 0, 65539, 720902, 0, 131073, 720903, 0, 2, 720904, 0, 2, 720905, 0, 2, 720906, 0, 2, 720907, 0, 131074, 720908, 0, 131075, 720910, 1, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Box" parent="Objekty" instance=ExtResource( 8 )]
+position = Vector2( 504, 168 )
+
+[node name="Box2" parent="Objekty" instance=ExtResource( 8 )]
+position = Vector2( 408, 360 )
+
+[node name="Box3" parent="Objekty" instance=ExtResource( 8 )]
+position = Vector2( 504, 360 )
+
+[node name="Box4" parent="Objekty" instance=ExtResource( 8 )]
+position = Vector2( 504, 216 )
+
+[node name="Box5" parent="Objekty" instance=ExtResource( 8 )]
+position = Vector2( 408, 408 )
+
+[node name="Kos" parent="Objekty" instance=ExtResource( 4 )]
+position = Vector2( 360, 264 )
+
+[node name="Listie" parent="Objekty" instance=ExtResource( 3 )]
+position = Vector2( 504, 264 )
+
+[node name="Listie2" parent="Objekty" instance=ExtResource( 3 )]
+position = Vector2( 552, 360 )
+
+[node name="Listie3" parent="Objekty" instance=ExtResource( 3 )]
+position = Vector2( 552, 216 )
+
+[node name="Listie4" parent="Objekty" instance=ExtResource( 3 )]
+position = Vector2( 552, 264 )
+
+[node name="Listie5" parent="Objekty" instance=ExtResource( 3 )]
+position = Vector2( 504, 408 )
+
+[node name="Player" parent="Objekty" instance=ExtResource( 2 )]
+position = Vector2( 408, 168 )
+
+[node name="Citat" type="ColorRect" parent="Objekty"]
+visible = false
+margin_top = 240.0
+margin_right = 960.0
+margin_bottom = 365.0
+color = Color( 1, 1, 0.882353, 0.882353 )
+
+[node name="Label" type="Label" parent="Objekty/Citat"]
+margin_left = 96.0
+margin_right = 864.0
+margin_bottom = 125.0
+custom_colors/font_color = Color( 0.290196, 0.215686, 0.470588, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "“In every change, in every falling leaf there is some pain, some beauty. And that's the way new leaves grow.”"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "level_fade_in"
+anims/RESET = SubResource( 2 )
+anims/level_fade_in = ExtResource( 6 )
+anims/level_fade_out = ExtResource( 9 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/citat_animation = SubResource( 4 )
+anims/level_fade_out = SubResource( 5 )
+
+[node name="Gui" parent="." instance=ExtResource( 7 )]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="Gui" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer2" to="Gui" method="_on_AnimationPlayer2_animation_finished"]
