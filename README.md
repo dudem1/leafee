@@ -12,7 +12,9 @@ It's simple. Collect the leaves and throw them to trash. Enjoy 😁
 ##Controls 🎮
 
 Movement - WASD or Arrow keys or Swipe
+
 Restart level - R key
+
 Undo step - Space key
 
 [You can play it on itch.io](https://dudem.itch.io/leafee)
