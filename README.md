@@ -17,4 +17,4 @@ Restart level - R key
 
 Undo step - Space key
 
-[You can play it on itch.io](https://dudem.itch.io/leafee)
+### [You can play it on itch.io](https://dudem.itch.io/leafee)
