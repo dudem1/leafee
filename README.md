@@ -5,11 +5,11 @@ It works best on devices with 10" and above screen size.
 
 Made with Godot Engine, Adobe Photoshop, FL Studio.
 
-##How to play? 🤔
+## How to play? 🤔
 
 It's simple. Collect the leaves and throw them to trash. Enjoy 😁
 
-##Controls 🎮
+## Controls 🎮
 
 Movement - WASD or Arrow keys or Swipe
 
