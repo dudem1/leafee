@@ -1,5 +1,5 @@
 # Leafee
-Leafee is a sokoban-style puzzle game. It was made for Cozy Autumn Game Jam (2022). The game contains 15 levels. After finishing all the levels, you will become a leaf raking master 😎
+Leafee is a sokoban-style puzzle game. It was made for [Cozy Autumn Game Jam (2022)](https://itch.io/jam/cozy-autumn-game-jam-2022). The game contains 15 levels. After finishing all the levels, you will become a leaf raking master 😎
 
 It works best on devices with 10" and above screen size.
 
